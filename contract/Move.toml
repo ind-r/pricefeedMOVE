@@ -4,7 +4,7 @@ version = "1.0.0"
 authors = []
 
 [addresses]
-walruii_addr = "_"
+walruii_addr = "51ef0ba5a0e0f96bd734c3875455fdc9978b42840b8955846053c32deb577f11"
 
 [dependencies]
 AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", rev = "mainnet", subdir = "aptos-move/framework/aptos-framework" }
