@@ -30,7 +30,7 @@ module walruii_addr::price_feed {
     move_to(owner, data_feed);
   }
 
-  fun update_feed(owner: &signer, last_price: u64, symbol: String)
+  public entry fun update_feed(owner: &signer, last_price: u64, symbol: String)
   acquires PriceFeeds {
     let signer_addr = signer::address_of(owner);
     assert!(signer_addr == @walruii_addr, ENOT_OWNER);
@@ -50,7 +50,8 @@ module walruii_addr::price_feed {
     }
   }
 
-  fun get_token_price(symbol: String): TokenFeed
+  #[view]
+  public fun get_token_price(symbol: String): TokenFeed
   acquires PriceFeeds {
     let symbols = borrow_global<PriceFeeds>(@walruii_addr).symbols;
     let (result, index) = vector::index_of(&symbols, &symbol);
