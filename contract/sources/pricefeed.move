@@ -73,7 +73,14 @@ module walruii_addr::price_feed {
     timestamp::set_time_has_started_for_testing(&init_addr);
     init_module(owner);
     update_feed(owner, 100000, utf8(b"BTC"));
+    update_feed(owner, 12342, utf8(b"ETH"));
+    update_feed(owner, 1, utf8(b"INDR"));
     let result = get_token_price(utf8(b"BTC"));
     p(&result);
+    let result2 = get_token_price(utf8(b"INDR"));
+    p(&result2);
+    update_feed(owner, 200000, utf8(b"BTC"));
+    let result3 = get_token_price(utf8(b"BTC"));
+    p(&result3);
   }
 }
